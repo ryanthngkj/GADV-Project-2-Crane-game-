@@ -40,15 +40,6 @@ public class Clawscript : MonoBehaviour
         if (Input.GetKey(KeyCode.R)){
         }
 
-        // Convert 0-360° into -180° to 180°
-        //if (currentRotation > 180f)
-        //    currentRotation -= 360f;
-
-        // Clamp the rotation
-        //currentRotation = Mathf.Clamp(currentRotation, minRotation, maxRotation);
-
-        //transform.rotation = Quaternion.Euler(0, 0, currentRotation);
-
         if (openClaws){
             if (Lclaw.transform.eulerAngles.z < 340){
                 Lclaw.transform.Rotate(0, 0, 1f);
