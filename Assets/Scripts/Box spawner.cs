@@ -1,48 +1,13 @@
-//using UnityEngine;
-//
-//public class Boxspawner : MonoBehaviour
-//{
-//    public Transform[] spawnPoints;
-//    public GameObject[] itemPrefabs;
-
-    
-//    void Start()
-//    {
-//        StartCoroutine(spawnItem());
-//    }
-
-//    private IEnumerator spawnItem()
-//    {
-//        while(true)
-//        {
-//            int currentSpawnIndex = Random.Range(0, spawnPoints.Length);
-//            Transform transform = spawnPoints[currentSpawnIndex];
-//
-//            int itemIndex = Random.Range(0, itemPrefabs.Length);
-//            Instantiate(itemPrefabs[itemIndex], transform.position, Quaternion.identity);
-//            yield return new WaitForSeconds(1f);
-//        }
- //   }
-//
-//    void Update()
-//    {
-        
-//    }
-//}
-
 using UnityEngine;
 
 public class Boxspawner : MonoBehaviour
 {
-    public Transform spawnPoint;
-    public GameObject[] itemPrefabs; // Assign your 3 colored box prefabs here
-
-    void Update()
+    public Transform spawnPoint; 
+    public GameObject[] itemPrefabs; //List to put the reserved prefabs in (If i put the ones in the scene,
+                                     //once they get deleted the code cannot refer to them anymore)
+    public void SpawnBox() //Public function for the button to call 
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            int itemIndex = Random.Range(0, itemPrefabs.Length);
-            Instantiate(itemPrefabs[itemIndex], spawnPoint.position, Quaternion.identity);
-        }
-    }
+        int itemIndex = Random.Range(0, itemPrefabs.Length); //This chooses what box to spawn at random from the list
+        Instantiate(itemPrefabs[itemIndex], spawnPoint.position, Quaternion.identity);
+    } //Create a copy of the selected box^, at the spawn point^, with no rotation^
 }
